@@ -9,11 +9,11 @@ library(tidyterra)
 library(ncdf4)
 
 # Load the data prepared in the script 04_sample_completeness.R
-load("results/mnt_slopes_data_new.RData")
-mountain_ranges <- vect("resources/mountain_ranges_2.shp")
+load("mnt_slopes_data_new.RData")
+mountain_ranges <- vect("mountain_ranges_2.shp")
 
 # Load elevation data (downloaded from NASA Shuttle Radar Topography Mission V003)
-elevation_raster <- terra::rast("resources/SRTM_2km.tif")
+elevation_raster <- terra::rast("SRTM_2km.tif")
 elevation_raster <- terra::project(elevation_raster, terra::vect(mountain_ranges[1,]))
 
 elevation_bins <- seq(0, 7000, 200)
@@ -31,7 +31,7 @@ for(k in 1:length(slopes)){
   ndvi.raster.summer <- rast()
   for(i in 4:9){
     for(j in 1:length(jours)){
-      ndvi_file <- nc_open(paste0("/Users/msomveille/Desktop/Projects/global-migration-model/resources/NDVI/copernicus/c_gls_NDVI-LTS_1999-2017-", mois[i], jours[j], "_GLOBE_VGT-PROBAV_V2.2.1.nc"))
+      ndvi_file <- nc_open(paste0("resources/NDVI/copernicus/c_gls_NDVI-LTS_1999-2017-", mois[i], jours[j], "_GLOBE_VGT-PROBAV_V2.2.1.nc"))
       ndvi.lat <- ncvar_get(nc = ndvi_file, varid = "lat")
       ndvi.lon <- ncvar_get(nc = ndvi_file, varid = "lon")
       ndvi.array <- ncvar_get(nc = ndvi_file, varid = "mean")
@@ -50,7 +50,7 @@ for(k in 1:length(slopes)){
   ndvi.raster.winter <- rast()
   for(i in c(1:3, 10:12)){
     for(j in 1:length(jours)){
-      ndvi_file <- nc_open(paste0("/Users/msomveille/Desktop/Projects/global-migration-model/resources/NDVI/copernicus/c_gls_NDVI-LTS_1999-2017-", mois[i], jours[j], "_GLOBE_VGT-PROBAV_V2.2.1.nc"))
+      ndvi_file <- nc_open(paste0("resources/NDVI/copernicus/c_gls_NDVI-LTS_1999-2017-", mois[i], jours[j], "_GLOBE_VGT-PROBAV_V2.2.1.nc"))
       ndvi.lat <- ncvar_get(nc = ndvi_file, varid = "lat")
       ndvi.lon <- ncvar_get(nc = ndvi_file, varid = "lon")
       ndvi.array <- ncvar_get(nc = ndvi_file, varid = "mean")
@@ -103,7 +103,7 @@ for(k in 1:length(slopes)){
 }
 env_data$ndvi[is.na(env_data$ndvi) == T] <- 0
 
-write.csv(env_data, "results/env_data.csv")
+write.csv(env_data, "env_data.csv")
 
 
 
@@ -112,7 +112,7 @@ write.csv(env_data, "results/env_data.csv")
 mountain_range_E_Him <- mountain_ranges[mountain_ranges$NAME == "EASTERN HIMALAYAS",]
 
 # Load the mountain slopes polygons and ebird data prepared using the script 03_mountain_slopes_delineation.R
-load("results/mountain_slopes.RData")
+load("mountain_slopes.RData")
 
 # Extract environmental conditions per elevational band
 
@@ -127,7 +127,7 @@ elevation_raster_sub <- terra::as.polygons(crop(elevation_raster, ext(mountain_s
 ndvi.raster.summer <- rast()
 for(i in 4:9){
   for(j in 1:length(jours)){
-    ndvi_file <- nc_open(paste0("/Users/msomveille/Desktop/Projects/global-migration-model/resources/NDVI/copernicus/c_gls_NDVI-LTS_1999-2017-", mois[i], jours[j], "_GLOBE_VGT-PROBAV_V2.2.1.nc"))
+    ndvi_file <- nc_open(paste0("resources/NDVI/copernicus/c_gls_NDVI-LTS_1999-2017-", mois[i], jours[j], "_GLOBE_VGT-PROBAV_V2.2.1.nc"))
     ndvi.lat <- ncvar_get(nc = ndvi_file, varid = "lat")
     ndvi.lon <- ncvar_get(nc = ndvi_file, varid = "lon")
     ndvi.array <- ncvar_get(nc = ndvi_file, varid = "mean")
@@ -146,7 +146,7 @@ ndvi.raster.summer <- mean(ndvi.raster.summer)
 ndvi.raster.winter <- rast()
 for(i in c(1:3, 10:12)){
   for(j in 1:length(jours)){
-    ndvi_file <- nc_open(paste0("/Users/msomveille/Desktop/Projects/global-migration-model/resources/NDVI/copernicus/c_gls_NDVI-LTS_1999-2017-", mois[i], jours[j], "_GLOBE_VGT-PROBAV_V2.2.1.nc"))
+    ndvi_file <- nc_open(paste0("resources/NDVI/copernicus/c_gls_NDVI-LTS_1999-2017-", mois[i], jours[j], "_GLOBE_VGT-PROBAV_V2.2.1.nc"))
     ndvi.lat <- ncvar_get(nc = ndvi_file, varid = "lat")
     ndvi.lon <- ncvar_get(nc = ndvi_file, varid = "lon")
     ndvi.array <- ncvar_get(nc = ndvi_file, varid = "mean")
@@ -197,7 +197,7 @@ rm(ndvi.array, ndvi.raster.summer, ndvi.raster.winter, temp.raster.summer, temp.
 
 env_data_E_Him$ndvi[is.na(env_data$ndvi) == T] <- 0
 
-write.csv(env_data_E_Him, "results/env_data_E_Him.csv")
+write.csv(env_data_E_Him, "env_data_E_Him.csv")
 
 
 # For future climate, the script above can be repeated with simply changing the temperature rasters that are loaded, and instead loading the ones downlowded for a future scenario
