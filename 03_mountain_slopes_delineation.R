@@ -20,7 +20,7 @@ mountain_slopes_polygons <- ebrd2_slopes <- list()
 j = 1
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
@@ -92,7 +92,7 @@ dev.off()
 j = 2
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
@@ -162,7 +162,7 @@ dev.off()
 j = 3
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
@@ -197,7 +197,7 @@ dev.off()
 j = 4
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
@@ -266,7 +266,7 @@ dev.off()
 j = 5
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -349,7 +349,7 @@ dev.off()
 j=6
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -420,7 +420,7 @@ dev.off()
 j = 7
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -459,7 +459,7 @@ dev.off()
 j = 8
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -530,7 +530,7 @@ dev.off()
 j = 9
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -601,7 +601,7 @@ dev.off()
 j = 10
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -672,7 +672,7 @@ dev.off()
 j = 11
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -712,7 +712,7 @@ dev.off()
 j = 12
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -765,7 +765,7 @@ dev.off()
 j = 13
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -818,7 +818,7 @@ dev.off()
 j = 14
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -857,7 +857,7 @@ dev.off()
 j = 15
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -897,7 +897,7 @@ dev.off()
 j = 16
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -988,7 +988,7 @@ dev.off()
 j = 17
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1027,7 +1027,7 @@ dev.off()
 j = 18
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1084,7 +1084,7 @@ dev.off()
 j = 19
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1155,7 +1155,7 @@ dev.off()
 j = 20
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1194,7 +1194,7 @@ dev.off()
 j = 21
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1249,7 +1249,7 @@ dev.off()
 j = 22
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1320,7 +1320,7 @@ dev.off()
 j = 23
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1357,7 +1357,7 @@ dev.off()
 j = 24
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1442,7 +1442,7 @@ dev.off()
 j = 25
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1523,7 +1523,7 @@ dev.off()
 j = 26
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1594,7 +1594,7 @@ dev.off()
 j = 27
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1633,7 +1633,7 @@ dev.off()
 j = 28
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1672,7 +1672,7 @@ dev.off()
 j = 29
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1709,7 +1709,7 @@ dev.off()
 j = 30
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
@@ -1800,7 +1800,7 @@ dev.off()
 j = 31
 mountain_range <- terra::vect(mountain_ranges[j,])
 # Get ebird data
-ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
+ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[j],".csv")) %>%
   filter(duplicated(sampling_event_identifier) == F)
 ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
 ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = crs(mountain_ranges), remove=F)
