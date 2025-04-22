@@ -30,19 +30,19 @@ st_crs(mountain_ranges) <- "+proj=lonlat +datum=WGS84 +no_defs"
 mountain_ranges <- sf::st_transform(mountain_ranges, "+proj=eqearth +datum=WGS84 +no_defs")
 
 # Add Hawaii
-mountain_ranges_hawaii <- st_read("resources/ne_10m_geography_regions_polys/OBJECTID-55.shp") %>% rename(NAME = Name) %>% dplyr::select(NAME)
+mountain_ranges_hawaii <- st_read("ne_10m_geography_regions_polys/OBJECTID-55.shp") %>% rename(NAME = Name) %>% dplyr::select(NAME)
 mountain_ranges_hawaii <- st_transform(mountain_ranges_hawaii, st_crs(mountain_ranges)) 
 mountain_ranges_hawaii <- mountain_ranges_hawaii %>% add_column(mnt.id = "NA", .after=1)
 mountain_ranges <- rbind(mountain_ranges, mountain_ranges_hawaii)
 
 # Add Taiwan
-mountain_ranges_taiwan <- st_read("resources/ne_10m_geography_regions_polys/OBJECTID-398.shp") %>% rename(NAME = Name) %>% dplyr::select(NAME)
+mountain_ranges_taiwan <- st_read("ne_10m_geography_regions_polys/OBJECTID-398.shp") %>% rename(NAME = Name) %>% dplyr::select(NAME)
 mountain_ranges_taiwan <- st_transform(mountain_ranges_taiwan, st_crs(mountain_ranges))
 mountain_ranges_taiwan <- mountain_ranges_taiwan %>% add_column(mnt.id = "NA", .after=1)
 mountain_ranges <- rbind(mountain_ranges, mountain_ranges_taiwan)
 
 # Add Cordillera Centroamericana Sur
-mountain_ranges_cordCentroamericana <- st_read("resources/ne_10m_geography_regions_polys/Cordillera_Centroamericana.shp") %>% dplyr::rename(NAME = MapName) %>% dplyr::select(NAME)
+mountain_ranges_cordCentroamericana <- st_read("ne_10m_geography_regions_polys/Cordillera_Centroamericana.shp") %>% dplyr::rename(NAME = MapName) %>% dplyr::select(NAME)
 mountain_ranges_cordCentroamericana <- st_transform(mountain_ranges_cordCentroamericana, "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 mountain_ranges_cordCentroamericana_sur <- st_crop(mountain_ranges_cordCentroamericana, c(xmin = -96, ymin = 0, xmax = -80, ymax = 11))
 mountain_ranges_cordCentroamericana_sur <- st_transform(mountain_ranges_cordCentroamericana_sur, st_crs(mountain_ranges))
@@ -51,7 +51,7 @@ mountain_ranges_cordCentroamericana_sur <- mountain_ranges_cordCentroamericana_s
 mountain_ranges <- rbind(mountain_ranges, mountain_ranges_cordCentroamericana_sur)
 
 # Load elevation data (downloaded from NASA Shuttle Radar Topography Mission V003)
-elevation_raster <- terra::rast("resources/SRTM_2km.tif")
+elevation_raster <- terra::rast("SRTM_2km.tif")
 elevation_raster <- terra::project(elevation_raster, terra::vect(mountain_ranges[1,]))
 
 # Elevation bins
@@ -102,6 +102,6 @@ mountain_ranges_elevation_bins <- mountain_ranges_elevation_bins[,-which(colname
 mountain_ranges <- mountain_ranges[match(colnames(mountain_ranges_elevation_bins), mountain_ranges$NAME),]
 
 # Save shapefile containing the mountain range polygons
-st_write(mountain_ranges, "resources/mountain_ranges.shp")
+st_write(mountain_ranges, "mountain_ranges.shp")
 
 
