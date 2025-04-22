@@ -9,13 +9,13 @@ library(tidyterra)
 library(iNEXT)
 
 # Load the shapefile of mountain ranges prepared using the script 02_mountain_ranges_ebird.R
-mountain_ranges <- st_read("resources/mountain_ranges_2.shp")
+mountain_ranges <- st_read("mountain_ranges_2.shp")
 
 # Load the mountain slopes polygons and ebird data prepared using the script 03_mountain_slopes_delineation.R
-load("results/mountain_slopes_4.RData")
+load("mountain_slopes_4.RData")
 
 # Load elevation data (downloaded from NASA Shuttle Radar Topography Mission V003)
-elevation_raster <- terra::rast("resources/SRTM_2km.tif")
+elevation_raster <- terra::rast("SRTM_2km.tif")
 elevation_raster <- terra::project(elevation_raster, terra::vect(mountain_ranges[1,]))
 
 ## Extract elevation for all eBird observation
@@ -39,7 +39,7 @@ for(k in 1:length(slopes_mountain_name)){
   mountain_range <- terra::vect(mountain_ranges[slopes_mountain_name[k],])
   
   # Load ebird data for the mountain range
-  ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[slopes_mountain_name[k]],".csv")) 
+  ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[slopes_mountain_name[k]],".csv")) 
   
   # filter ebird data for checklist that are within the 2 degrees gradient
   ebrd2_slopes_sub <- ebrd2_slopes %>% filter(slope == slopes[k])
@@ -188,4 +188,4 @@ for (i in 2:length(mountain_slopes_polygons)) {
 }
 mountain_slopes_polys <- st_as_sf(mountain_slopes_polys) %>% mutate(name = names(mountain_slopes_polygons))
 
-save(mountain_slopes_polys, slopes_mountain_name, ebrd2_slopes, file="results/mnt_slopes_data_new.RData")
+save(mountain_slopes_polys, slopes_mountain_name, ebrd2_slopes, file="mnt_slopes_data_new.RData")
