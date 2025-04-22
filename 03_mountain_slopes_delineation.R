@@ -8,7 +8,7 @@ library(terra)
 library(tidyterra)
 
 # Load the the shapefile of mountain ranges prepared using the script 02_mountain_ranges_ebird.R
-mountain_ranges <- st_read("resources/mountain_ranges_2.shp")
+mountain_ranges <- st_read("mountain_ranges_2.shp")
 
 # Two mountain ranges were removed from the dataset: Dinaric Alps and Siwalik Hills, because ebird data was too spread out and it wasn't possible to clearly delineate mountain slopes with sufficient ebird data
 mountain_ranges <- mountain_ranges[!(mountain_ranges$NAME %in% c("Dinaric Alps", "Siwalik Hills")),]
@@ -1881,5 +1881,5 @@ ggarrange(g_summer, g_winter, nrow=2, ncol=1, legend="bottom", common.legend = T
 dev.off()
 
 
-save(mountain_slopes_polygons, ebrd2_slopes, file="results/mountain_slopes.RData")
+save(mountain_slopes_polygons, ebrd2_slopes, file="mountain_slopes.RData")
 
