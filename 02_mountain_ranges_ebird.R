@@ -8,7 +8,7 @@ library(terra)
 library(tidyterra)
 
 # Load the the shapefile of mountain ranges prepared using the script 01_mountain_ranges.R
-mountain_ranges <- st_read("resources/mountain_ranges.shp")
+mountain_ranges <- st_read("mountain_ranges.shp")
 mountain_ranges$mnt_id[85:87] <- c("220", "221", "222")
 
 ##  First set of filters to remove mountains with insufficient ebird data ##
@@ -17,14 +17,14 @@ mountain_ranges$mnt_id[85:87] <- c("220", "221", "222")
 # Remove the following habitat categories associated with water: Coastal, Marine, Riverine, Wetland (+ Human Modified)
 # Remove the following primary lifestyle category: Aquatic
 # Remove the following trophic niches: Aquatic predator, Herbivore aquatic
-avonet_data <- read_csv("resources/avonet_data.csv") %>%
+avonet_data <- read_csv("avonet_data.csv") %>%
   rename(SCI_NAME = Species2) %>%
-  left_join(read_csv("resources/eBird_Taxonomy_v2019.csv")) %>%
+  left_join(read_csv("eBird_Taxonomy_v2019.csv")) %>%
   filter(Habitat %in% c("Desert", "Grassland", "Rock", "Shrubland", "Forest", "Woodland") & Primary.Lifestyle %in% c("Aerial", "Generalist", "Insessorial", "Terrestrial") & Trophic.Niche %in% c("Invertivore", "Omnivore", "Frugivore", "Nectarivore", "Granivore", "Herbivore terrestrial", "Scavenger", "Vertivore"))
 
 
 # Load eBird data for each mountain range
-load("resources/ebird-mountain-ranges.RData")
+load("ebird-mountain-ranges.RData")
 
 # Filter eBird data and split by mountain range
 for(i in 1:nrow(mountain_ranges)){
@@ -68,7 +68,7 @@ mountain_ranges <- mountain_ranges[which(mnt_checklists$checklists_winter >= 100
 ##  Extract elevation for each checklist ##
 
 # Load elevation data (downloaded from NASA Shuttle Radar Topography Mission V003)
-elevation_raster <- terra::rast("resources/SRTM_2km.tif")
+elevation_raster <- terra::rast("SRTM_2km.tif")
 elevation_raster <- terra::project(elevation_raster, terra::vect(mountain_ranges[1,]))
 
 ebrd2_summer_checklists_elevation <- ebrd2_winter_checklists_elevation <- list()
@@ -91,5 +91,5 @@ tokeep <- which(unlist(lapply(ebrd2_summer_checklists_elevation, function(x) dif
 mountain_ranges <- mountain_ranges[tokeep,]
 
 # Save mountain range polygons as shapefile
-st_write(mountain_ranges, "resources/mountain_ranges_2.shp", append=F)
+st_write(mountain_ranges, "mountain_ranges_2.shp", append=F)
 
