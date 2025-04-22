@@ -41,7 +41,7 @@ for(i in 1:nrow(mountain_ranges)){
   ebrd2_summer <- ebrd2 %>% subset(day > 151 & day < 227) %>% mutate(season = "summer") # 1 June — 15 August
   ebrd2_winter <- ebrd2 %>% subset(day < 45 | day > 334) %>% mutate(season = "winter") # 1 Dec — 15 Feb
   ebrd2 <- rbind(ebrd2_summer, ebrd2_winter)
-  write_csv(ebrd2, paste0("resources/ebird_data/", mountain_ranges$NAME[i],".csv"))
+  write_csv(ebrd2, paste0("ebird_data/", mountain_ranges$NAME[i],".csv"))
   rm(ebrd2_summer, ebrd2_winter, ebrd2)
   print(i)
 }
@@ -50,7 +50,7 @@ for(i in 1:nrow(mountain_ranges)){
 ebrd2_summer_checklists <- ebrd2_winter_checklists <- mnt_names <- vector()
 ebrd2_summer_checklists_elevation <- list()
 for(i in 1:nrow(mountain_ranges)){
-  ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[i],".csv")) %>%
+  ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[i],".csv")) %>%
     filter(duplicated(sampling_event_identifier) == F)
   mnt_names[i] <- mountain_ranges$NAME[i]
   ebrd2_summer_checklists[i] <- length(which(ebrd2$season == "summer"))
@@ -73,7 +73,7 @@ elevation_raster <- terra::project(elevation_raster, terra::vect(mountain_ranges
 
 ebrd2_summer_checklists_elevation <- ebrd2_winter_checklists_elevation <- list()
 for(i in 1:nrow(mountain_ranges)){
-  ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[i],".csv")) %>%
+  ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[i],".csv")) %>%
     filter(duplicated(sampling_event_identifier) == F)
   ebrd2_summer_sf <- st_as_sf(x = ebrd2 %>% filter(season == "summer"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
   ebrd2_winter_sf <- st_as_sf(x = ebrd2 %>% filter(season == "winter"), coords = c("longitude", "latitude"), crs = st_crs(mountain_ranges), remove=F)
