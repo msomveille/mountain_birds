@@ -7,8 +7,8 @@ library(sf)
 library(terra)
 
 # Upload mountain range polygons
-mountain.key <- read.csv("resources/mountain-key.csv")
-mountain_ranges <- st_read("resources/ne_10m_geography_regions_polys/ne_10m_geography_regions_polys.shp") %>% dplyr::select(NAME)
+mountain.key <- read.csv("mountain-key.csv")
+mountain_ranges <- st_read("ne_10m_geography_regions_polys/ne_10m_geography_regions_polys.shp") %>% dplyr::select(NAME)
 mountain_ranges <- mountain_ranges[match(mountain.key$NAME, mountain_ranges$NAME),] %>% left_join(mountain.key)
 
 # Crop the Andes to only keep the southern part
