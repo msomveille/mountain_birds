@@ -10,10 +10,10 @@ library(tidyterra)
 # Present climate
 
 # Load environmental data prepared in 05_environmental_data.R
-env_data_E_Him <- read_csv("results/env_data_E_Him.csv")[,-1]
+env_data_E_Him <- read_csv("env_data_E_Him.csv")[,-1]
 
 # Load the mountain slopes polygons and ebird data prepared using the script 03_mountain_slopes_delineation.R
-load("results/mountain_slopes.RData")
+load("mountain_slopes.RData")
 
 ## Extract elevation for all eBird observation
 ebrd2_slopes_E_Him <- ebrd2_slopes %>% filter(slope == "Eastern_Himalayas")
