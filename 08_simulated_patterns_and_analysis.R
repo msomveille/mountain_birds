@@ -13,14 +13,14 @@ library(lmerTest)
 library(MuMIn)
 
 # Load the data prepared in the previous scripts
-load("results/mnt_slopes_data_new.RData")
-mountain_ranges <- vect("resources/mountain_ranges_2.shp")
-species_elevational_ranges <- read.csv("results/species_elevational_ranges_new8.csv")
+load("mnt_slopes_data_new.RData")
+mountain_ranges <- vect("mountain_ranges_2.shp")
+species_elevational_ranges <- read.csv("species_elevational_ranges.csv")
 
 
 # Global latitudinal patterns of bird migration
 
-data_global_rich <- read.csv("resources/PresAbs_global/isea3h7_niche_apet.csv")
+data_global_rich <- read.csv("PresAbs_global/isea3h7_niche_apet.csv")
 data_global_rich_sf <- data_global_rich %>% st_as_sf(coords = c("LONGITUDE", "LATITUDE"), crs='+proj=longlat +datum=WGS84')
 
 # Americas
@@ -78,7 +78,7 @@ dev.off()
 ##  Simulating the elevational seasonal distribution of birds  ##
 
 # Energy supply per elevational band
-env_data <- read_csv("results/env_data5.csv")[,-1]
+env_data <- read_csv("env_data.csv")[,-1]
 elevation_bins <- seq(0, 7000, 200)
 slopes <- mountain_slopes_polys$name
 env_data_elevation_bins <- list()
@@ -417,7 +417,7 @@ ggplot() +
   facet_wrap(~reorder(slope, -latitude), scales="free_y") + theme_classic()
 dev.off()
 
-write_csv(richness_all_df, file="results/richness_all_df.csv")
+write_csv(richness_all_df, file="richness_all_df.csv")
 
 # Random slope model to test the correlation between simulated and empirical richness patterns globally
 mod <- lmer(richness_difference ~ 1 + richness_difference_simu + (1 + richness_difference_simu | slope), data=richness_all_df)
