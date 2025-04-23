@@ -9,9 +9,9 @@ library(tidyterra)
 library(ggpubr)
 
 # Load the data prepared in the previous scripts
-load("results/mnt_slopes_data_new.RData")
-mountain_ranges <- vect("resources/mountain_ranges_2.shp")
-species_elevational_ranges <- read.csv("results/species_elevational_ranges_new8.csv")
+load("mnt_slopes_data_new.RData")
+mountain_ranges <- vect("mountain_ranges_2.shp")
+species_elevational_ranges <- read.csv("species_elevational_ranges.csv")
 
 
 species_per_slope <- table(species_elevational_ranges$species, species_elevational_ranges$slope)
