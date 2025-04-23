@@ -9,10 +9,10 @@ library(tidyterra)
 
 
 # Load environmental data prepared in 05_environmental_data.R
-env_data_future <- read_csv("results/env_data_future.csv")[,-1]
+env_data_future <- read_csv("env_data_future.csv")[,-1]
 
 # Load empirical patterns in the seasonal difference in richness
-richness_all_df <- read_csv("results/richness_all_df.csv")
+richness_all_df <- read_csv("richness_all_df.csv")
 
 # Energy supply per elevational band
 env_data_elevation_bins_future <- list()
