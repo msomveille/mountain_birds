@@ -12,11 +12,11 @@ library(Hmisc)
 library(rworldmap)
 
 # Get environmental data for the present prepared in the script 05_environmental_data.R
-env_data <- read.csv("results/env_data.csv")
+env_data <- read.csv("env_data.csv")
 
 # Load the data prepared in the script 04_sample_completeness.R
-load("results/mnt_slopes_data_new.RData")
-mountain_ranges <- vect("resources/mountain_ranges_2.shp")
+load("mnt_slopes_data_new.RData")
+mountain_ranges <- vect("mountain_ranges_2.shp")
 
 
 elevation_bins <- seq(0, 7000, 200)
@@ -30,7 +30,7 @@ for(k in 1:nrow(mountain_slopes_polys)){
   mountain_range <- mountain_ranges[slopes_mountain_name[k],]
   
   # Load ebird data for the mountain range
-  ebrd2 <- read_csv(paste0("resources/ebird_data/", mountain_ranges$NAME[slopes_mountain_name[k]],".csv")) 
+  ebrd2 <- read_csv(paste0("ebird_data/", mountain_ranges$NAME[slopes_mountain_name[k]],".csv")) 
   
   # filter ebird data for checklist that are within the 2 degrees gradient
   ebrd2_slopes_sub <- ebrd2_slopes %>% filter(slope == slopes[k])
@@ -191,7 +191,7 @@ for(k in 1:nrow(mountain_slopes_polys)){
 species_elevational_range_summer <- do.call(rbind, species_elevational_range_summer)
 species_elevational_range_winter <- do.call(rbind, species_elevational_range_winter)
 species_elevational_ranges <- rbind(species_elevational_range_summer, species_elevational_range_winter)
-write.csv(species_elevational_ranges, "results/species_elevational_ranges.csv")
+write.csv(species_elevational_ranges, "species_elevational_ranges.csv")
 
 
 
