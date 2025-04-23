@@ -14,6 +14,9 @@ env_data_future <- read_csv("env_data_future.csv")[,-1]
 # Load empirical patterns in the seasonal difference in richness
 richness_all_df <- read_csv("richness_all_df.csv")
 
+slopes <- unique(richness_all_df$slope)
+elevation_bins <- seq(0, 7000, 200)
+
 # Energy supply per elevational band
 env_data_elevation_bins_future <- list()
 for(k in 1:length(slopes)){
